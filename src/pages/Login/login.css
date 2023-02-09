@@ -1,4 +1,4 @@
-.signup-container {
+.login-container {
   height: 600px;
   width: 100vw;
   display: flex;
@@ -8,35 +8,19 @@
   gap: 50px;
 }
 
-.signup-form {
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
 }
 
-.checkbox-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.check-desc {
-  width: 300px;
-}
-
-.signup-container h1 {
+.login-container h1 {
   font-size: 30px;
   font-weight: bold;
 }
 
-.check-desc {
-  font-size: 14px;
-  color: rgb(97, 97, 97);
-}
-
-.signup-form button {
+.login-form button {
   color: white;
   border: none;
   font-size: 18px;
@@ -45,13 +29,13 @@
   border-radius: 5px;
 }
 
-.signup-form input {
+.login-form input {
   padding: 10px 20px;
   border: none;
   border-bottom: pink 1px solid;
 }
 
-.signup-link {
+.login-link {
   text-decoration: none;
   color: #2baeb7;
 }

@@ -41,7 +41,7 @@ const Home = () => {
         </div>
       </div>
       <div className="main">
-        {data.offers.map((offer, index) => {
+        {data.offers.map((offer) => {
           return <Article offer={offer} key={offer._id} />;
         })}
       </div>
