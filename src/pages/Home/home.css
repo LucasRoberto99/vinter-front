@@ -1,0 +1,38 @@
+.hero-banner {
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.margin-banner {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.hero-ready {
+  width: 385px;
+  height: 300px;
+  background-color: #fff;
+  /* border: red 1px solid; */
+  position: absolute;
+  top: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 35px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  border-radius: 8px;
+}
+
+.hero-title {
+  font-size: 34px;
+}
+
+.hero-button {
+  height: 50px;
+  color: #fff;
+  background-color: #2baeb7;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}

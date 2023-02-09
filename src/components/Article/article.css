@@ -1,0 +1,41 @@
+.avatar-pic {
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+}
+
+.article {
+  /* border: red 1px solid; */
+  margin-bottom: 16px;
+  /* width: 235px; */
+  /* box-sizing: border-box; */
+  padding: 8px;
+}
+
+.article-profile {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 10px;
+}
+
+.article-link {
+  text-decoration: none;
+  color: black;
+}
+
+.article-pic img {
+  width: 235px;
+  height: 360px;
+  object-fit: cover;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.price-size-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+  color: grey;
+}
