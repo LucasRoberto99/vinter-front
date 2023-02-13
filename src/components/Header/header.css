@@ -24,11 +24,50 @@ header {
   flex-wrap: wrap;
 }
 
+.search-loupe {
+  position: relative;
+}
+
+.loupe {
+  position: absolute;
+  left: 8px;
+  top: 11px;
+}
+
 .search-bar {
   padding: 10px 10px;
   padding-left: 30px;
   width: 300px;
   border-radius: 8px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-button {
+  color: white;
+}
+
+.middle-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.set-price-search-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.outputs {
+  margin-top: 10px;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .button-blanc {
@@ -43,6 +82,15 @@ header {
   border: 2px solid #2baeb7;
   border-radius: 8px;
   color: #2baeb7;
+}
+
+.header-logout {
+  width: 130px;
+  height: 35px;
+  background-color: rgb(185, 16, 47);
+  border: none;
+  border-radius: 8px;
+  color: white;
 }
 
 .button-vend {

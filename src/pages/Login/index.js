@@ -4,13 +4,14 @@ import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const Login = () => {
+const Login = ({ setSignupModal, setPriceSearchBar }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     Cookies.get("token") && navigate("/");
+    setPriceSearchBar(false);
   });
 
   const handleSubmit = async (event) => {
@@ -57,7 +58,13 @@ const Login = () => {
         />
         <button>Se connecter</button>
       </form>
-      <Link className="login-link" to={"/signup"}>
+      <Link
+        onClick={() => {
+          setSignupModal(true);
+        }}
+        className="login-link"
+        to={"/"}
+      >
         Pas de compte ..? Inscris-toi ! 😎
       </Link>
     </div>

@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = ({ setPriceSearchBar }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +14,8 @@ const SignUp = () => {
 
   useEffect(() => {
     Cookies.get("token") && navigate("/");
-  });
+    setPriceSearchBar(false);
+  }, [navigate, setPriceSearchBar]);
 
   const handleSubmit = async (event) => {
     try {

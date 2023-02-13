@@ -2,8 +2,10 @@ import "./offer.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-const Offer = () => {
+const Offer = ({ setPriceSearchBar }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -15,21 +17,78 @@ const Offer = () => {
       );
       setData(response.data);
       setIsLoading(false);
+      setPriceSearchBar(false);
     };
 
     fetchData();
-  }, [id]);
+  }, [id, setPriceSearchBar]);
 
   return isLoading ? (
     <span>Chargement ...</span>
   ) : (
     <div className="offer-body">
       <div className="offer-article">
-        <img
-          className="offer-pic"
-          src={data.product_pictures[0].url}
-          alt="offerPic"
-        />
+        <Carousel
+          additionalTransfrom={0}
+          arrows
+          autoPlaySpeed={3000}
+          centerMode={false}
+          className="left-pic"
+          containerClass="container"
+          dotListClass=""
+          draggable
+          focusOnSelect={false}
+          infinite
+          itemClass=""
+          keyBoardControl
+          minimumTouchDrag={80}
+          pauseOnHover
+          renderArrowsWhenDisabled={false}
+          renderButtonGroupOutside={false}
+          renderDotsOutside={false}
+          responsive={{
+            desktop: {
+              breakpoint: {
+                max: 3000,
+                min: 1024,
+              },
+              items: 1,
+            },
+            mobile: {
+              breakpoint: {
+                max: 464,
+                min: 0,
+              },
+              items: 1,
+            },
+            tablet: {
+              breakpoint: {
+                max: 1024,
+                min: 464,
+              },
+              items: 1,
+            },
+          }}
+          rewind={false}
+          rewindWithAnimation={false}
+          rtl={false}
+          shouldResetAutoplay
+          showDots
+          sliderClass=""
+          slidesToSlide={1}
+          swipeable
+        >
+          {data.product_pictures.map((pic, index) => {
+            return (
+              <img
+                className="left-pic-img"
+                src={pic.url}
+                alt={`offerpic${index}`}
+              />
+            );
+          })}
+        </Carousel>
+
         <div className="offer-white">
           <div className="offer-white-top">
             <span>{data.product_price.toFixed(2)} €</span>
@@ -38,9 +97,7 @@ const Offer = () => {
 
               return (
                 <div className="offer-div" key={index}>
-                  <span className="offer-span offer-title">
-                    {key.toUpperCase()}
-                  </span>
+                  <span className="offer-span offer-title">{key}</span>
                   <span className="offer-span">{detail[key]}</span>
                 </div>
               );

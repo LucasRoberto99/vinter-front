@@ -7,6 +7,7 @@
 .margin-banner {
   width: 1280px;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .hero-ready {
@@ -15,7 +16,7 @@
   background-color: #fff;
   /* border: red 1px solid; */
   position: absolute;
-  top: 150px;
+  top: 200px;
   display: flex;
   flex-direction: column;
   padding: 35px;
@@ -35,4 +36,25 @@
   border: none;
   border-radius: 8px;
   font-size: 16px;
+}
+
+.footer {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer > div {
+  height: 30px;
+  width: 30px;
+  /* border: red 1px solid; */
+  text-align: center;
+  line-height: 30px;
+}
+
+.page {
+  font-size: 20px;
+  font-weight: bold;
 }
