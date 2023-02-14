@@ -18,7 +18,7 @@ const SignupModal = ({ setSignupModal }) => {
     try {
       event.preventDefault();
       if (email.includes("@")) {
-        if (username && email && password) {
+        if (username && email && password && avatar) {
           const formData = new FormData();
           formData.append("email", email);
           formData.append("username", username);
@@ -30,7 +30,7 @@ const SignupModal = ({ setSignupModal }) => {
             `http://localhost:4000/user/signup`,
             formData
           );
-          console.log(username);
+          // console.log(username);
           Cookies.set("token", response.data.token);
           alert("submited 🧏‍♂️");
           setSignupModal(false);
@@ -64,8 +64,15 @@ const SignupModal = ({ setSignupModal }) => {
             }}
           />
           <div className="avatar-selector">
-            <label>
-              <div className="addpic-div">
+            <label className="display-signup-label">
+              {avatar && (
+                <img
+                  className="avatar-signup"
+                  src={URL.createObjectURL(avatar)}
+                  alt="avatarpic"
+                />
+              )}
+              <div className="addpic-div redbox">
                 <FontAwesomeIcon className="plus-icon" icon="plus" />
                 <span className="addpic-avatar">
                   Ajoutez une photo de profil
@@ -77,10 +84,8 @@ const SignupModal = ({ setSignupModal }) => {
                 type="file"
                 onChange={(event) => {
                   setAvatar(event.target.files[0]);
-                  console.log(avatar);
                 }}
               />
-              {avatar && <div>{avatar.name}</div>}
             </label>
           </div>
           <input

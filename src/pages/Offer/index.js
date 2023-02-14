@@ -16,7 +16,6 @@ const Offer = ({ setPriceSearchBar }) => {
       setData(response.data);
       setIsLoading(false);
       setPriceSearchBar(false);
-      // console.log(data);
     };
 
     fetchData();
