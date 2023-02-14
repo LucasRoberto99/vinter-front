@@ -12,18 +12,19 @@ import Publish from "./pages/Publish";
 // fontawsome
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+  faPlus,
   faMagnifyingGlass,
   faArrowUp,
   faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faMagnifyingGlass, faArrowUp, faArrowDown);
+library.add(faMagnifyingGlass, faArrowUp, faArrowDown, faPlus);
 // import Offer from "./pages/Offer";
 
 function App() {
   const [signupModal, setSignupModal] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
   const [querySearch, setQuerySearch] = useState("");
-  const [sort, setSort] = useState("price-asc");
+  const [sort, setSort] = useState("asc");
   const [priceMin, setPriceMin] = useState(0);
   const [priceMax, setPriceMax] = useState(500);
   const [priceSearchBar, setPriceSearchBar] = useState(true);
@@ -77,7 +78,10 @@ function App() {
             />
           }
         />
-        <Route path="/publish" element={<Publish />} />
+        <Route
+          path="/publish"
+          element={<Publish setPriceSearchBar={setPriceSearchBar} />}
+        />
       </Routes>
     </Router>
   );

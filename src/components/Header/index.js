@@ -60,13 +60,12 @@ const Header = ({
                       unchecked: <FontAwesomeIcon icon="arrow-up" />,
                     }}
                     onChange={() => {
-                      sort === "price-desc"
-                        ? setSort("price-asc")
-                        : setSort("price-desc");
+                      sort === "desc" ? setSort("asc") : setSort("desc");
                     }}
                   />
                 </div>
                 <div>
+                  {/* A TOUT LECTEUR SACHEZ QUE CE QUI SUIT M'EST QUASI INCOMPREHENSIBLE D'OU LA NON COLORATION ET LE FAIT QUE LES MIN MAX NE SUIVENT PAS LES BOUTONS */}
                   <Range
                     step={5}
                     min={0}
@@ -143,7 +142,14 @@ const Header = ({
             </button>
           )}
 
-          <button className="button-vend">Vends tes articles</button>
+          <button
+            className="button-vend"
+            onClick={() => {
+              Cookies.get("token") ? navigate("/publish") : navigate("/login");
+            }}
+          >
+            Vends tes articles
+          </button>
         </div>
       </header>
       {signupModal ? (

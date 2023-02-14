@@ -24,12 +24,12 @@ const Login = ({ setSignupModal, setPriceSearchBar }) => {
         };
 
         const response = await axios.post(
-          `https://lereacteur-vinted-api.herokuapp.com/user/login`,
+          `http://localhost:4000/user/login`,
           formSend
         );
         Cookies.set("token", response.data.token);
         alert("connection réussie");
-        navigate("/");
+        navigate("/publish");
       }
     } catch (error) {
       console.log(error.response.data.message);

@@ -2,6 +2,8 @@ import "./signupModal.css";
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 // import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -9,6 +11,7 @@ const SignupModal = ({ setSignupModal }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [avatar, setAvatar] = useState();
   const [newscheck, setNewscheck] = useState(false);
   //   const navigate = useNavigate();
   const handleSubmit = async (event) => {
@@ -16,18 +19,18 @@ const SignupModal = ({ setSignupModal }) => {
       event.preventDefault();
       if (email.includes("@")) {
         if (username && email && password) {
-          let formSend = {
-            email: email,
-            username: username,
-            password: password,
-            newsletter: newscheck,
-          };
+          const formData = new FormData();
+          formData.append("email", email);
+          formData.append("username", username);
+          formData.append("password", password);
+          formData.append("newsletter", newscheck);
+          formData.append("avatar", avatar);
 
           const response = await axios.post(
-            `https://lereacteur-vinted-api.herokuapp.com/user/signup`,
-            formSend
+            `http://localhost:4000/user/signup`,
+            formData
           );
-          // console.log(response.data._id);
+          console.log(username);
           Cookies.set("token", response.data.token);
           alert("submited 🧏‍♂️");
           setSignupModal(false);
@@ -60,6 +63,26 @@ const SignupModal = ({ setSignupModal }) => {
               setUsername(event.target.value);
             }}
           />
+          <div className="avatar-selector">
+            <label>
+              <div className="addpic-div">
+                <FontAwesomeIcon className="plus-icon" icon="plus" />
+                <span className="addpic-avatar">
+                  Ajoutez une photo de profil
+                </span>
+              </div>
+              <input
+                id="avatar-input"
+                className="avatar-input"
+                type="file"
+                onChange={(event) => {
+                  setAvatar(event.target.files[0]);
+                  console.log(avatar);
+                }}
+              />
+              {avatar && <div>{avatar.name}</div>}
+            </label>
+          </div>
           <input
             value={email}
             type="text"

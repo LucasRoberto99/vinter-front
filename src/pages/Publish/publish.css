@@ -1,0 +1,117 @@
+.publish-body {
+  background-color: rgb(236, 236, 236);
+}
+
+.margin-publish {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.publish-title {
+  font-size: 35px;
+  padding-top: 40px;
+  /* text-align: center; */
+}
+
+.label-publish {
+  background-color: #fff;
+  margin: 20px 0;
+  padding: 40px;
+  box-shadow: 0 0 2px grey;
+}
+
+.label-middle-align {
+  align-items: center;
+  border: 1px dashed #ebedee;
+  border-radius: 3px;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  position: relative;
+}
+
+.img-in-label {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  position: absolute;
+  left: 0px;
+}
+
+.input-design {
+  align-items: center;
+  border: 1px solid #0ab1ba;
+  border-radius: 4px;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  color: #0ab1ba;
+  cursor: pointer;
+  font-weight: 700;
+  gap: 20px;
+  padding: 10px;
+}
+
+.title-name-div {
+  background-color: #fff;
+  box-shadow: 0 0 2px grey;
+  margin: 20px 0;
+}
+
+.title-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.title-div > input {
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  font-family: Maison Neue;
+  font-size: 16px;
+  width: 50%;
+}
+
+.checkbox-publish {
+  /* width: 50%; */
+  display: flex;
+  gap: 20px;
+  /* border: red 1px solid; */
+  justify-content: flex-end;
+  padding-right: 160px;
+  height: 60px;
+  align-items: center;
+}
+
+.div-publish-button {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 30px;
+}
+
+.publish-button {
+  height: 40px;
+  width: 100px;
+  border: none;
+  background-color: #0ab1ba;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 0 2px black;
+}
+
+.input-publish {
+  display: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

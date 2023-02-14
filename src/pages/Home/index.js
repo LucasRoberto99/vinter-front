@@ -24,8 +24,9 @@ const Home = ({
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offers?page=${page}&limit=10&title=${querySearch}&sort=${sort}&priceMin=${priceMin}&priceMax=${priceMax}`
+        `http://localhost:4000/offers?page=${page}&limit=10&title=${querySearch}&sort=${sort}&priceMin=${priceMin}&priceMax=${priceMax}`
       );
+      // console.log(response.data.offers);
       setData(response.data);
       setIsLoading(false);
       setMaxPage(Math.ceil(response.data.count / 10));

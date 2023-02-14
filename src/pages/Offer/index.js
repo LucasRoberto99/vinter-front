@@ -12,16 +12,16 @@ const Offer = ({ setPriceSearchBar }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
-      );
+      const response = await axios.get(`http://localhost:4000/offer/${id}`);
       setData(response.data);
       setIsLoading(false);
       setPriceSearchBar(false);
+      // console.log(data);
     };
 
     fetchData();
   }, [id, setPriceSearchBar]);
+  console.log(data);
 
   return isLoading ? (
     <span>Chargement ...</span>
@@ -78,15 +78,18 @@ const Offer = ({ setPriceSearchBar }) => {
           slidesToSlide={1}
           swipeable
         >
-          {data.product_pictures.map((pic, index) => {
-            return (
-              <img
-                className="left-pic-img"
-                src={pic.url}
-                alt={`offerpic${index}`}
-              />
-            );
-          })}
+          {/* {data.product_picture.map((pic, index) => { */}
+          {/* return ( */}
+          <img
+            className="left-pic-img"
+            // src={pic.url}
+            src={data.product_picture.secure_url}
+            // alt={`offerpic${index}`}
+            alt="imgdeloffre"
+            // key={index}
+          />
+          {/* ); */}
+          {/* })} */}
         </Carousel>
 
         <div className="offer-white">

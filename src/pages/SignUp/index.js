@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+// accessible VIA URL DIRECT UNIQUEMENT
+
 const SignUp = ({ setPriceSearchBar }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -30,13 +32,13 @@ const SignUp = ({ setPriceSearchBar }) => {
           };
 
           const response = await axios.post(
-            `https://lereacteur-vinted-api.herokuapp.com/user/signup`,
+            `http://localhost:4000/user/signup`,
             formSend
           );
-          // console.log(response.data._id);
+          // console.log(username);
           Cookies.set("token", response.data.token);
           alert("submited 🧏‍♂️");
-          navigate("/");
+          navigate("/publish");
         }
       } else {
         alert("Please use a real email adress");

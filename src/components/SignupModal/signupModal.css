@@ -9,7 +9,7 @@
 
 .signup-modal-container {
   background-color: #fff;
-  height: 600px;
+  height: 700px;
   width: 500px;
   margin: 0 auto;
   display: flex;
@@ -69,6 +69,33 @@
   padding: 10px 20px;
   border: none;
   border-bottom: pink 1px solid;
+}
+
+.avatar-input {
+  display: none;
+}
+.plus-icon {
+  color: #2baeb7;
+  height: 30px;
+}
+
+.addpic-avatar {
+  color: #2baeb7;
+}
+
+.addpic-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.addpic-div :hover {
+  cursor: pointer;
+}
+
+.avatar-selector {
+  text-align: center;
 }
 
 .signup-link {

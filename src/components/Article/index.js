@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 const Article = ({ offer }) => {
   // console.log(offer);
+  console.log(offer);
   const profile = offer.owner.account.username;
-  const articlePicUrl = offer.product_image.url;
+  const articlePicUrl = offer.product_picture.url;
   const price = offer.product_price;
   const productDetails = offer.product_details;
   const id = offer._id;
