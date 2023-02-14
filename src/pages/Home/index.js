@@ -25,7 +25,7 @@ const Home = ({
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:4000/offers?page=${page}&limit=5&title=${querySearch}&sort=${sort}&priceMin=${priceMin}&priceMax=${priceMax}`
+        `https://site--vinted-backend--fhx5w78hhgzd.code.run/offers?page=${page}&limit=5&title=${querySearch}&sort=${sort}&priceMin=${priceMin}&priceMax=${priceMax}`
       );
       // console.log(response.data.offers);
       setData(response.data);

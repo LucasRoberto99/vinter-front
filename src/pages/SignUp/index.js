@@ -32,7 +32,7 @@ const SignUp = ({ setPriceSearchBar }) => {
           };
 
           const response = await axios.post(
-            `http://localhost:4000/user/signup`,
+            `https://site--vinted-backend--fhx5w78hhgzd.code.run/user/signup`,
             formSend
           );
           // console.log(username);

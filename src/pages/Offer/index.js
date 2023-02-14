@@ -4,15 +4,21 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Offer = ({ setPriceSearchBar }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`http://localhost:4000/offer/${id}`);
+      const response = await axios.get(
+        `https://site--vinted-backend--fhx5w78hhgzd.code.run/offer/${id}`
+      );
       setData(response.data);
       setIsLoading(false);
       setPriceSearchBar(false);
@@ -20,8 +26,7 @@ const Offer = ({ setPriceSearchBar }) => {
 
     fetchData();
   }, [id, setPriceSearchBar]);
-  console.log(data);
-
+  // console.log(data._id);
   return isLoading ? (
     <span>Chargement ...</span>
   ) : (
@@ -119,8 +124,24 @@ const Offer = ({ setPriceSearchBar }) => {
                 ""
               )}{" "}
               {data.owner.account.username}
-            </span>{" "}
-            <button className="offer-button">Acheter</button>
+            </span>
+            <button
+              className="offer-button"
+              onClick={() => {
+                Cookies.get("token")
+                  ? navigate("/payement", {
+                      state: {
+                        id: data._id,
+                        price: data.product_price,
+                        description: data.product_description,
+                        title: data.product_name,
+                      },
+                    })
+                  : navigate("/login");
+              }}
+            >
+              Acheter
+            </button>
           </div>
         </div>
       </div>

@@ -17,6 +17,7 @@ import {
   faArrowUp,
   faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
+import Payement from "./pages/Payement";
 library.add(faMagnifyingGlass, faArrowUp, faArrowDown, faPlus);
 // import Offer from "./pages/Offer";
 
@@ -81,6 +82,11 @@ function App() {
         <Route
           path="/publish"
           element={<Publish setPriceSearchBar={setPriceSearchBar} />}
+        />
+
+        <Route
+          path="/payement"
+          element={<Payement setPriceSearchBar={setPriceSearchBar} />}
         />
       </Routes>
     </Router>

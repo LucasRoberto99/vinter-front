@@ -18,16 +18,19 @@ const SignupModal = ({ setSignupModal }) => {
     try {
       event.preventDefault();
       if (email.includes("@")) {
-        if (username && email && password && avatar) {
+        if (username && email && password) {
           const formData = new FormData();
           formData.append("email", email);
           formData.append("username", username);
           formData.append("password", password);
           formData.append("newsletter", newscheck);
-          formData.append("avatar", avatar);
+          if (avatar) {
+            formData.append("avatar", avatar);
+          }
+          // console.log("hey");
 
           const response = await axios.post(
-            `http://localhost:4000/user/signup`,
+            `https://site--vinted-backend--fhx5w78hhgzd.code.run/user/signup`,
             formData
           );
           // console.log(username);

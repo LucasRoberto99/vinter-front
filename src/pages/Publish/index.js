@@ -45,7 +45,7 @@ const Publish = ({ setPriceSearchBar }) => {
                 }
               }
               await axios.post(
-                "http://localhost:4000/offer/publish",
+                "https://site--vinted-backend--fhx5w78hhgzd.code.run/offer/publish",
                 formData,
                 {
                   headers: {
